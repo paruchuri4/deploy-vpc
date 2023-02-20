@@ -1,4 +1,4 @@
-
+/*
 # Create security group
 
 resource "aws_security_group" "dev-sg" {
@@ -19,6 +19,25 @@ resource "aws_security_group" "dev-sg" {
     cidr_blocks = ["0.0.0.0/0"] # This means, all ip address are allowed to port 80 !
   }
 
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # This means, all ip address are allowed to port 443 !
+  }
+
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # This means, all ip address are allowed to port 8080 !
+  }
+  ingress {
+    from_port   = 3389
+    to_port     = 3389
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # This means, all ip address are allowed to port 3389 !
+  }
   egress {
     from_port   = 0
     to_port     = 0
@@ -27,6 +46,7 @@ resource "aws_security_group" "dev-sg" {
   }
 
   tags = {
-    Name = " to allow ssh and port 80"
+    Name = " to allow traffic for specific ports"
   }
 }
+*/

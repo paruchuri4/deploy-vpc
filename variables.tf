@@ -22,3 +22,4 @@ variable "privatekey-path" {
   description = "enter the private key path with name  utilizing for ec2 machine"
   default     = "./ec2-key.pem" # change the value according to your key pair location
 }
+
